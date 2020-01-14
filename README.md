@@ -7,7 +7,8 @@
 
 - https://hub.docker.com/
 - Download "Docker Desktop for Mac"
-- Custom and official Docker IMAGES are on dockerhub, e.g - https://hub.docker.com/_/ubuntu/
+- Custom and official Docker IMAGES are on DockerHub, e.g - https://hub.docker.com/_/ubuntu/
+- IMAGES are used to create CONTAINERS
 
 ## Super basic commands
 
