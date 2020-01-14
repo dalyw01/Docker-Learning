@@ -38,7 +38,7 @@ docker run -it --name my-linux-container --rm -v notes.txt ubuntu bash
 docker run -it --name my-linux-container --rm -v /c/Users/:/my-data ubuntu bash 
 ```
 
-## Creating and a container from my own image file
+## Creating a container from my own image file
 
 Setup
 ```
