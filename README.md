@@ -4,14 +4,17 @@
 ![Git](https://nickjanetakis.com/assets/blog/cards/differences-between-a-dockerfile-docker-image-and-docker-container-001320c81dd8d2989df10d0bec36341fd6a94b043f6f9de1c26ee79eaf16e566.jpg)
 
 ## To start
-
 - https://hub.docker.com/
 - Download "Docker Desktop for Mac"
 - Custom and official Docker IMAGES are on DockerHub, e.g - https://hub.docker.com/_/ubuntu/
-- IMAGES are used to create CONTAINERS
+
+## Some lingo
+- Docker IMAGES are used to create CONTAINERS
+- A CONTAINER is an instance of an IMAGE
+- A CONTAINER is a slimmed down version of an OS
+- A DockerFile is basically a type of config file
 
 ## Super basic commands
-
 ```
 docker images = lists all offline images on your machine
 docker ps -a = display current running containers
@@ -35,7 +38,7 @@ docker run -it --name my-linux-container --rm -v notes.txt ubuntu bash
 docker run -it --name my-linux-container --rm -v /c/Users/:/my-data ubuntu bash 
 ```
 
-## Creating and running own Image file
+## Creating and a container from my own image file
 
 Setup
 ```
