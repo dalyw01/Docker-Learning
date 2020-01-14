@@ -19,6 +19,7 @@
 ```
 docker images = lists all offline images on your machine
 docker ps -a = display current running containers
+docker rmi <imageID> = Deleting an image from your computer
 ```
 
 ## Juicy commands
