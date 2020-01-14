@@ -1,10 +1,13 @@
 # Docker-Learning
-Some notes I made while learning basic Docker commands! 
+- Some notes I made while learning basic Docker functionality.
+
+![Git](https://nickjanetakis.com/assets/blog/cards/differences-between-a-dockerfile-docker-image-and-docker-container-001320c81dd8d2989df10d0bec36341fd6a94b043f6f9de1c26ee79eaf16e566.jpg)
 
 ## To start
 
 - https://hub.docker.com/
 - Download "Docker Desktop for Mac"
+- Custom and official Docker IMAGES are on dockerhub, e.g - https://hub.docker.com/_/ubuntu/
 
 ## Super basic commands
 
