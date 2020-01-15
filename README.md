@@ -136,11 +136,19 @@ Visit http://localhost:4000/ on your host machines browser, you should see "Hell
 
 However, any changes we make to index.js will not be reflected in our container
 
+So we will kill it
 
+```
+docker kill e69acf6e20f6
+```
 
+Verify it's been killed successfully
 
+```
+MC-S104581:my-node-app dalyw01$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```
 
-
-
+Create the container again from the image with your changes implemented!
 
 
