@@ -28,7 +28,7 @@ docker rmi <imageID> = Deleting an image from your computer
 ```
 docker run ubuntu = creates an ubuntu container with random name (will download if image is not on machine already)
 docker run --name LOL ubuntu = runs an ubuntu container with my custom name "LOL"
-docker run -it ubuntu bash
+docker run -it ubuntu bash = if no --name, a random name will be assigned from docker
 ```
 ## Juicier commands
 - **-v** mounts a file or drive
@@ -50,7 +50,7 @@ Dockerfile	notes.txt
 Build an IMAGE from the Dockerfile
 - **.** indicates DockerFile is in same directory
 ```
-docker build -t my-ubuntu-image . = build my local image, 
+docker build -t my-ubuntu-image . = build an image from my local Dockerfile
 ```
 Now running the new IMAGE to create a CONTAINER
 ```
