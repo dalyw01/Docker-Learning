@@ -19,17 +19,20 @@
 ```
 docker images = lists all offline images on your machine
 docker ps -a = display current running containers
+docker ps = display current running containers
 docker rmi <imageID> = Deleting an image from your computer
 ```
 
 ## Juicy commands
 - **-it** pops us into a container upon creating 
 - **bash** commands are set
+
 ```
 docker run ubuntu = creates an ubuntu container with random name (will download if image is not on machine already)
 docker run --name LOL ubuntu = runs an ubuntu container with my custom name "LOL"
 docker run -it ubuntu bash = if no --name, a random name will be assigned from docker
 ```
+
 ## Juicier commands
 - **-v** mounts a file or drive
 - **--rm** deletes a container upon exiting it
@@ -47,17 +50,97 @@ This is the basic setup
 MC-S104581:docker-tutorial dalyw01$ ls
 Dockerfile	notes.txt
 ```
+
 Build an IMAGE from the Dockerfile
 - **.** indicates DockerFile is in same directory
+
 ```
 docker build -t my-ubuntu-image . = build an image from my local Dockerfile
 ```
+
 Now running the new IMAGE to create a CONTAINER
+
 ```
 docker run -it my-ubuntu-image bash
 ```
+
 Verifying Python is actually installed
+
 ```
 root@29aacfd9b882:/# python3
 Python 3.6.9 (default, Nov  7 2019, 10:44:02) 
 ```
+
+## Creating a node JS container, running it locally and viewing on my host machine
+
+Make a directory called my-node-app and go into it
+
+```
+MC-S104581:Desktop dalyw01$ mkdir my-node-app
+MC-S104581:Desktop dalyw01$ cd my-node-app/
+```
+
+Inside this folder have a file called "Dockerfile" and have inside it the following
+
+```
+    # Dockerfile  
+    FROM node:8  
+    WORKDIR /app  
+    COPY package.json /app  
+    RUN npm install  
+    COPY . /app  
+    EXPOSE 8081  
+    CMD node index.js
+```
+
+Now create a new IMAGE from it, calling it "wills_node_image"
+
+```
+docker build -t wills_node_image .
+```
+
+Once you run that command you get should get a lot of output, it ends with something like
+
+```
+Step 7/7 : CMD node index.js
+ ---> Running in 60b8cefe8344
+Removing intermediate container 60b8cefe8344
+ ---> 891ddb571099
+Successfully built 891ddb571099
+Successfully tagged wills_node_image:latest
+```
+
+Check the IMAGE has been built successfully
+
+```
+MC-S104581:my-node-app dalyw01$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+wills_node_image    latest              891ddb571099        15 seconds ago      904MB
+```
+
+Now you can run it!
+
+```
+docker container run -p 4000:8081  wills_node_image
+```
+
+Verify it's running
+
+```
+MC-S104581:my-node-app dalyw01$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+e69acf6e20f6        wills_node_image    "docker-entrypoint.s…"   13 minutes ago      Up 13 minutes       0.0.0.0:4000->8081/tcp   fervent_wing
+```
+
+Visit http://localhost:4000/ on your host machines browser, you should see "Hello World!"
+
+However, any changes we make to index.js will not be reflected in our container
+
+
+
+
+
+
+
+
+
