@@ -149,6 +149,21 @@ MC-S104581:my-node-app dalyw01$ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
 
-Create the container again from the image with your changes implemented!
+So if you want to make changes to index.js,make the changes then run the following
+
+re-build the image
+
+```
+docker build -t wills_node_image .
+```
+
+re-run the container
+
+```
+docker container run -p 4000:8081  wills_node_image
+```
+
+You should see the changes in your browser!
 
 
+![An image displaying HTML output of our nodeJS app](browser.jpg)
