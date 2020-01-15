@@ -171,3 +171,34 @@ You should see the changes in your browser!
 
 
 ![An image displaying HTML output of our nodeJS app](browser.jpg)
+
+## Commands summarized
+
+- *-it* pops us into a container upon creating 
+- *bash* commands are set
+- *-v* mounts a file or drive
+- *--rm* deletes a container upon exiting it
+- *.* indicates DockerFile is in same directory
+
+```
+docker images
+docker ps -a 
+docker ps 
+
+docker run ubuntu 
+docker run --name LOL ubuntu
+
+docker run -it ubuntu bash 
+docker run -it my-ubuntu-image bash
+docker run -it --name my-linux-container --rm -v notes.txt ubuntu bash
+docker run -it --name my-linux-container --rm -v /c/Users/:/my-data ubuntu bash 
+
+docker container run -p 4000:8081  wills_node_image
+
+docker build -t my-ubuntu-image . = build an image from my local Dockerfile
+docker build -t wills_node_image .
+
+docker kill e69acf6e20f6 = kill a specific container
+docker rm $(docker ps -a -f status=exited -q) = delete all local containers
+```
+
