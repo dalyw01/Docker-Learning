@@ -78,7 +78,11 @@ Make a directory called my-node-app and go into it
 ```
 MC-S104581:Desktop dalyw01$ mkdir my-node-app
 MC-S104581:Desktop dalyw01$ cd my-node-app/
+MC-S104581:my-node-app dalyw01$ ls
+Dockerfile	index.js	package.json
 ```
+
+index.js, package.json and DockerFile are located in this repo
 
 Inside this folder have a file called "Dockerfile" and have inside it the following
 
