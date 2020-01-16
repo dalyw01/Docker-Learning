@@ -175,6 +175,7 @@ You should see the changes in your browser!
 ## Commands summarized
 
 ```
+- - - - - - - - - - - - - - - - - - - -
 Listing docker info
 - - - - - - - - - - - - - - - - - - - -
 
@@ -182,6 +183,7 @@ docker images
 docker ps
 docker ps -a 
 
+- - - - - - - - - - - - - - - - - - - -
 Creating containers
 - - - - - - - - - - - - - - - - - - - -
 
@@ -195,6 +197,10 @@ docker container run -it ubuntu bash
 docker container run ubuntu bash
 docker container run --name HAHAHAHAHAHAHAHAH ubuntu
 
+- - - - - - - - - - - - - - - - - - - -
+Creating  containers
+- - - - - - - - - - - - - - - - - - - -
+
 -v = mounts a file or drive [path to local]:[path inside container]
 --rm = deletes a container upon exiting it
 -p = specify port or port range
@@ -204,6 +210,7 @@ docker container run -it --name my-linux-container --rm -v notes.txt ubuntu bash
 docker container run -it --name water123123 --rm -v /Users/dalyw01/Desktop/docker-tutorial/my-data:/derp-folder ubuntu bash
 docker container run -p 4000:8081 wills_node_image
 
+- - - - - - - - - - - - - - - - - - - -
 Building custom Images from Dockerfile
 - - - - - - - - - - - - - - - - - - - -
 
@@ -213,6 +220,7 @@ Building custom Images from Dockerfile
 docker build -t my-ubuntu-image .
 docker build -t wills_node_image .
 
+- - - - - - - - - - - - - - - - - - - -
 Destroying images and containers
 - - - - - - - - - - - - - - - - - - - -
 
