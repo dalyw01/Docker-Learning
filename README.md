@@ -206,7 +206,7 @@ docker container run --name HAHAHAHAHAHAHAHAH ubuntu
 
 docker container run --name my-linux-container -v notes.txt ubuntu bash
 docker container run -it --name my-linux-container --rm -v notes.txt ubuntu bash 
-docker container run -it --name water123123 --rm -v /Users/dalyw01/Desktop/docker-tutorial/my-data:/my-data ubuntu bash
+docker container run -it --name water123123 --rm -v /Users/dalyw01/Desktop/docker-tutorial/my-data:/derp-folder ubuntu bash
 docker container run -p 4000:8081 wills_node_image
 
 Building custom Images from Dockerfile
