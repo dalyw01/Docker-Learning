@@ -174,6 +174,8 @@ You should see the changes in your browser!
 
 ## Commands summarized
 
+
+- *name* 
 - *-it* pops us into a container upon creating 
 - *bash* commands are set
 - *-v* mounts a file or drive
@@ -181,23 +183,40 @@ You should see the changes in your browser!
 - *.* indicates DockerFile is in same directory
 
 ```
+Listing docker info
+
 docker images
+docker ps
 docker ps -a 
-docker ps 
 
-docker run ubuntu 
-docker run --name LOL ubuntu
+Creating containers
 
-docker run -it ubuntu bash 
-docker run -it my-ubuntu-image bash
-docker run -it --name my-linux-container --rm -v notes.txt ubuntu bash
-docker run -it --name my-linux-container --rm -v /c/Users/:/my-data ubuntu bash 
+- *name* = gives container a name
+- - *-it* = pops us into a container upon creating 
+- *bash* = set bash terminal
 
-docker container run -p 4000:8081  wills_node_image
+docker run ubuntu
+docker container run ubuntu
+docker container run -it ubuntu bash
+docker container run ubuntu bash
+docker container run --name HAHAHAHAHAHAHAHAH ubuntu
 
-docker build -t my-ubuntu-image . = build an image from my local Dockerfile
+- *-v*  = mounts a file or drive [path to local]:[path inside container]
+- *--rm* = deletes a container upon exiting it
+
+docker container run --name my-linux-container -v notes.txt ubuntu bash
+docker container run -it --name my-linux-container --rm -v notes.txt ubuntu bash 
+docker container run -it --name water123123 --rm -v /Users/dalyw01/Desktop/docker-tutorial/my-data:/my-data ubuntu bash
+docker container run -p 4000:8081 wills_node_image
+
+Building custom Images from Dockerfile
+
+- *t* names an image
+
+docker build -t my-ubuntu-image .
 docker build -t wills_node_image .
 
+docker image rm wills_node_image --force
 docker kill e69acf6e20f6 = kill a specific container
 docker rm $(docker ps -a -f status=exited -q) = delete all local containers
 ```
