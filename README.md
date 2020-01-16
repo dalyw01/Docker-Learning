@@ -191,9 +191,9 @@ docker ps -a
 
 Creating containers
 
-- *name* = gives container a name
-- - *-it* = pops us into a container upon creating 
-- *bash* = set bash terminal
+--name = gives container a name
+-it = pops us into a container upon creating 
+bash = set bash terminal
 
 docker run ubuntu
 docker container run ubuntu
@@ -201,8 +201,8 @@ docker container run -it ubuntu bash
 docker container run ubuntu bash
 docker container run --name HAHAHAHAHAHAHAHAH ubuntu
 
-- *-v*  = mounts a file or drive [path to local]:[path inside container]
-- *--rm* = deletes a container upon exiting it
+-v = mounts a file or drive [path to local]:[path inside container]
+--rm = deletes a container upon exiting it
 
 docker container run --name my-linux-container -v notes.txt ubuntu bash
 docker container run -it --name my-linux-container --rm -v notes.txt ubuntu bash 
@@ -211,13 +211,14 @@ docker container run -p 4000:8081 wills_node_image
 
 Building custom Images from Dockerfile
 
-- *t* names an image
+-t = names an image
 
 docker build -t my-ubuntu-image .
 docker build -t wills_node_image .
+
+Destroying images and containers
 
 docker image rm wills_node_image --force
 docker kill e69acf6e20f6 = kill a specific container
 docker rm $(docker ps -a -f status=exited -q) = delete all local containers
 ```
-
