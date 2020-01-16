@@ -174,14 +174,6 @@ You should see the changes in your browser!
 
 ## Commands summarized
 
-
-- *name* 
-- *-it* pops us into a container upon creating 
-- *bash* commands are set
-- *-v* mounts a file or drive
-- *--rm* deletes a container upon exiting it
-- *.* indicates DockerFile is in same directory
-
 ```
 Listing docker info
 
@@ -191,8 +183,8 @@ docker ps -a
 
 Creating containers
 
-name = gives container a name
-it = pops us into a container upon creating 
+--name = gives container a name
+-it = pops us into a container upon creating 
 bash = set bash terminal (use "exit" to leave it)
 
 docker run ubuntu
@@ -201,8 +193,9 @@ docker container run -it ubuntu bash
 docker container run ubuntu bash
 docker container run --name HAHAHAHAHAHAHAHAH ubuntu
 
-v = mounts a file or drive [path to local]:[path inside container]
-rm = deletes a container upon exiting it
+-v = mounts a file or drive [path to local]:[path inside container]
+--rm = deletes a container upon exiting it
+-p = specify port or port range
 
 docker container run --name my-linux-container -v notes.txt ubuntu bash
 docker container run -it --name my-linux-container --rm -v notes.txt ubuntu bash 
@@ -211,7 +204,7 @@ docker container run -p 4000:8081 wills_node_image
 
 Building custom Images from Dockerfile
 
-t = names an image
+-t = names an image
 . = is if Dockerfile is in the same directory
 
 docker build -t my-ubuntu-image .
