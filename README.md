@@ -176,12 +176,14 @@ You should see the changes in your browser!
 
 ```
 Listing docker info
+- - - - - - - - - - - - - - - - - - - -
 
 docker images
 docker ps
 docker ps -a 
 
 Creating containers
+- - - - - - - - - - - - - - - - - - - -
 
 --name = gives container a name
 -it = pops us into a container upon creating 
@@ -203,6 +205,7 @@ docker container run -it --name water123123 --rm -v /Users/dalyw01/Desktop/docke
 docker container run -p 4000:8081 wills_node_image
 
 Building custom Images from Dockerfile
+- - - - - - - - - - - - - - - - - - - -
 
 -t = names an image
 . = is if Dockerfile is in the same directory
@@ -211,6 +214,7 @@ docker build -t my-ubuntu-image .
 docker build -t wills_node_image .
 
 Destroying images and containers
+- - - - - - - - - - - - - - - - - - - -
 
 docker image rm wills_node_image --force
 docker kill e69acf6e20f6 = kill a specific container
