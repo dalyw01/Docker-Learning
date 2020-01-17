@@ -14,6 +14,7 @@
 - A CONTAINER is a slimmed down version of an OS
 - A DockerFile is basically a type of config file
 - VOLUMES allow CONTAINERS to see files from the host machine
+- Most docker commands contain an action, a path, and options
 
 ## Basic commands
 ```
