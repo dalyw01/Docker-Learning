@@ -44,7 +44,7 @@ docker run -it --name my-linux-container --rm -v notes.txt ubuntu bash
 docker run -it --name my-linux-container --rm -v /c/Users/:/my-data ubuntu bash 
 ```
 
-## Creating a container from my own image file
+## Example 1 - Creating an Ubuntu container from my own image file
 
 This is the basic setup
 ```
@@ -72,7 +72,7 @@ root@29aacfd9b882:/# python3
 Python 3.6.9 (default, Nov  7 2019, 10:44:02) 
 ```
 
-## Creating a node JS container, running it locally and viewing on my host machine
+## Example 2 - Creating a nodeJS container, running it on container and viewing on my host machine
 
 Make a directory called my-node-app and go into it
 
