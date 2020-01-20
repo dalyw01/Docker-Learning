@@ -228,4 +228,5 @@ Destroying images and containers
 docker image rm wills_node_image --force
 docker kill e69acf6e20f6 = kill a specific container
 docker rm $(docker ps -a -f status=exited -q) = delete all local containers
+docker rm hopeful_heisenberg = kill a container running in background preventing you starting a new container
 ```
