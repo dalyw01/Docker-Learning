@@ -72,7 +72,7 @@ root@29aacfd9b882:/# python3
 Python 3.6.9 (default, Nov  7 2019, 10:44:02) 
 ```
 
-## Example 2 - Creating a nodeJS container, running it on container and viewing on my host machine
+## Example 2 - Creating a nodeJS container, running and viewing on my host machine
 
 Make a directory called my-node-app and go into it
 
