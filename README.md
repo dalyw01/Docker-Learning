@@ -230,3 +230,13 @@ docker kill e69acf6e20f6 = kill a specific container
 docker rm $(docker ps -a -f status=exited -q) = delete all local containers
 docker rm hopeful_heisenberg = kill a container running in background preventing you starting a new container
 ```
+
+Selenium grid
+
+docker run -d -p 4444:4444 --name selenium-hub selenium/hub:3.4.0 < specific version
+docker run -d -p 5555:5555 --link selenium-hub:hub selenium/node-chrome:3.4.0 < specific version
+docker run -d -p 7777:7777 --link selenium-hub:hub selenium/node-firefox
+
+http://127.0.0.1:4444/grid/console# < url to visit in console to see the grid
+https://www.realvnc.com/en/connect/download/viewer/ < download vnc
+
