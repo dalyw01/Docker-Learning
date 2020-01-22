@@ -245,31 +245,29 @@ Viewing the entire console here - http://127.0.0.1:4444/grid/console#
 
 Now we'll start running some containers to view in our grid!
 
-Setup a chrome debug container
+Now we want to setup 3 chrome containers on different port numbers
+
+- node-firefox-debug = latest version of firefox
+- node-chrome-debug = latest version of chrome
+- node-chrome-debug:3.4.0 = older version of chrome v:60.0.3112.113
 
 ```
-docker run -d -p 5900:5900 --link selenium-hub:hub selenium/node-chrome-debug
-```
-
-We can also setup a firefox container
-
-```
-docker run -d -p 7777:7777 --link selenium-hub:hub selenium/node-firefox
-```
-
-Firefox and Chrome containers of a particular version can be set as follows - 
-
-```
-docker run -d -p 4444:4444 --name selenium-hub selenium/hub:3.4.0 < specific version
-docker run -d -p 5555:5555 --link selenium-hub:hub selenium/node-chrome:3.4.0 < specific version
+docker run -d -p 5901:5900 --link selenium-hub:hub selenium/node-firefox-debug
+docker run -d -p 5902:5900 --link selenium-hub:hub selenium/node-chrome-debug
+docker run -d -p 5903:5900 --link selenium-hub:hub selenium/node-chrome-debug:3.4.0
 ```
 
 When you do a docker ps you should see something like
 
 ```
-CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                    NAMES
-a19ea9e269fa        selenium/node-chrome-debug   "/opt/bin/entry_poin…"   About an hour ago   Up About an hour    0.0.0.0:5900->5900/tcp   funny_kirch
-d6e90e09779e        selenium/hub                 "/opt/bin/entry_poin…"   About an hour ago   Up About an hour    0.0.0.0:4444->4444/tcp   selenium-hub
+daly:selenium-docker dalyw01$ docker ps
+CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS              PORTS                    NAMES
+835d62d19ff4        selenium/node-chrome-debug:3.4.0   "/opt/bin/entry_poin…"   6 seconds ago       Up 5 seconds        0.0.0.0:5903->5900/tcp   adoring_hopper
+da5a4247fc0e        selenium/node-firefox-debug        "/opt/bin/entry_poin…"   13 minutes ago      Up 13 minutes       0.0.0.0:5902->5900/tcp   sweet_gates
+2e4b42c6fabf        selenium/node-chrome-debug         "/opt/bin/entry_poin…"   16 minutes ago      Up 16 minutes       0.0.0.0:5901->5900/tcp   reverent_matsumoto
+b2a61b36c279        selenium/node-chrome-debug         "/opt/bin/entry_poin…"   16 minutes ago      Up 16 minutes       0.0.0.0:5900->5900/tcp   wizardly_dirac
+2c83ced90a54        selenium/hub                       "/opt/bin/entry_poin…"   29 minutes ago      Up 29 minutes       0.0.0.0:4444->4444/tcp   selenium-hub
+
 ```
 
 Now download VNC - https://www.realvnc.com/en/connect/download/viewer/
