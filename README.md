@@ -267,3 +267,16 @@ docker run -d -p 5555:5555 --link selenium-hub:hub selenium/node-chrome:3.4.0 < 
 Now download VNC - https://www.realvnc.com/en/connect/download/viewer/
 
 Put this as the URL to connect to - 127.0.0.1:5900
+
+You should be greeted by an Ubuntu desktop
+
+To open Chrome on your Ubuntu image simply
+
+```
+Applications > Network > Web Browsing > Google Chrome
+```
+
+You should see something like :) - 
+
+![An image displaying Google Chrome inside an Ubuntu container](ubuntu.jpg)
+
