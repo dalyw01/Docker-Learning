@@ -282,6 +282,19 @@ To open Chrome on your Ubuntu image simply
 Applications > Network > Web Browsing > Google Chrome
 ```
 
+To open Firefox on your Ubuntu image simply
+
+```
+Applications > Shells > Bash
+```
+
+Then run
+
+```
+firefox -P
+```
+
+
 You should see something like :) - 
 
 ![An image displaying Google Chrome inside an Ubuntu container](ubuntu.jpg)
