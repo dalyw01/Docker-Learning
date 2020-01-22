@@ -231,12 +231,39 @@ docker rm $(docker ps -a -f status=exited -q) = delete all local containers
 docker rm hopeful_heisenberg = kill a container running in background preventing you starting a new container
 ```
 
-Selenium grid
+## Selenium grid
 
+Lets setup our grid first
+
+```
+docker run -d -p 4444:4444 --name selenium-hub selenium/hub
+```
+
+To check your grid is up and running visit here - http://127.0.0.1:4444
+
+Viewing the entire console here - http://127.0.0.1:4444/grid/console#
+
+Now we'll start running some containers to view in our grid!
+
+Setup a chrome debug container
+
+```
+docker run -d -p 5900:5900 --link selenium-hub:hub selenium/node-chrome-debug
+```
+
+We can also setup a firefox container
+
+```
+docker run -d -p 7777:7777 --link selenium-hub:hub selenium/node-firefox
+```
+
+Firefox and Chrome containers of a particular version can be set as follows - 
+
+```
 docker run -d -p 4444:4444 --name selenium-hub selenium/hub:3.4.0 < specific version
 docker run -d -p 5555:5555 --link selenium-hub:hub selenium/node-chrome:3.4.0 < specific version
-docker run -d -p 7777:7777 --link selenium-hub:hub selenium/node-firefox
+```
 
-http://127.0.0.1:4444/grid/console# < url to visit in console to see the grid
-https://www.realvnc.com/en/connect/download/viewer/ < download vnc
+Now download VNC - https://www.realvnc.com/en/connect/download/viewer/
 
+Put this as the URL to connect to - 127.0.0.1:5900
