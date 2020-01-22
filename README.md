@@ -264,9 +264,17 @@ docker run -d -p 4444:4444 --name selenium-hub selenium/hub:3.4.0 < specific ver
 docker run -d -p 5555:5555 --link selenium-hub:hub selenium/node-chrome:3.4.0 < specific version
 ```
 
+When you do a docker ps you should see something like
+
+```
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                    NAMES
+a19ea9e269fa        selenium/node-chrome-debug   "/opt/bin/entry_poin…"   About an hour ago   Up About an hour    0.0.0.0:5900->5900/tcp   funny_kirch
+d6e90e09779e        selenium/hub                 "/opt/bin/entry_poin…"   About an hour ago   Up About an hour    0.0.0.0:4444->4444/tcp   selenium-hub
+```
+
 Now download VNC - https://www.realvnc.com/en/connect/download/viewer/
 
-Put this as the URL to connect to - 127.0.0.1:5900
+Put this as the URL to connect to the ubuntu container with Chrome - 127.0.0.1:5900
 
 You should be greeted by an Ubuntu desktop
 
