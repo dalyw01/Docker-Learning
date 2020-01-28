@@ -183,6 +183,7 @@ Listing docker info
 docker images
 docker ps
 docker ps -a 
+docker pull selenium/node-firefox-debug < update image
 
 - - - - - - - - - - - - - - - - - - - -
 Creating containers
