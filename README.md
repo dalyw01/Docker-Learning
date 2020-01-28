@@ -46,20 +46,20 @@ docker run -it --name my-linux-container --rm -v /c/Users/:/my-data ubuntu bash
 
 ## Example 1 - Creating an Ubuntu container from my own image file
 
-This is the basic setup
+This is our basic setup
 ```
 MC-S104581:docker-tutorial dalyw01$ ls
 Dockerfile	notes.txt
 ```
 
-Build an IMAGE from the Dockerfile
+We Build an IMAGE from the Dockerfile
 - **.** indicates DockerFile is in same directory
 
 ```
 docker build -t my-ubuntu-image . = build an image from my local Dockerfile
 ```
 
-Now running the new IMAGE to create a CONTAINER
+Now we create container from image
 
 ```
 docker run -it my-ubuntu-image bash
@@ -77,7 +77,6 @@ Python 3.6.9 (default, Nov  7 2019, 10:44:02)
 Make a directory called my-node-app and go into it
 
 ```
-MC-S104581:Desktop dalyw01$ mkdir my-node-app
 MC-S104581:Desktop dalyw01$ cd my-node-app/
 MC-S104581:my-node-app dalyw01$ ls
 Dockerfile	index.js	package.json
@@ -173,66 +172,8 @@ You should see the changes in your browser!
 
 ![An image displaying HTML output of our nodeJS app](browser.jpg)
 
-## Commands summarized
 
-```
-- - - - - - - - - - - - - - - - - - - -
-Listing docker info
-- - - - - - - - - - - - - - - - - - - -
-
-docker images
-docker ps
-docker ps -a 
-docker pull selenium/node-firefox-debug < update image
-
-- - - - - - - - - - - - - - - - - - - -
-Creating containers
-- - - - - - - - - - - - - - - - - - - -
-
---name = gives container a name
--it = pops us into a container upon creating 
-bash = set bash terminal (use "exit" to leave it)
-
-docker run ubuntu
-docker container run ubuntu
-docker container run -it ubuntu bash
-docker container run ubuntu bash
-docker container run --name HAHAHAHAHAHAHAHAH ubuntu
-
-- - - - - - - - - - - - - - - - - - - -
-Creating  containers
-- - - - - - - - - - - - - - - - - - - -
-
--v = mounts a file or drive [path to local]:[path inside container]
---rm = deletes a container upon exiting it
--p = specify port or port range
-
-docker container run --name my-linux-container -v notes.txt ubuntu bash
-docker container run -it --name my-linux-container --rm -v notes.txt ubuntu bash 
-docker container run -it --name water123123 --rm -v /Users/dalyw01/Desktop/docker-tutorial/my-data:/derp-folder ubuntu bash
-docker container run -p 4000:8081 wills_node_image
-
-- - - - - - - - - - - - - - - - - - - -
-Building custom Images from Dockerfile
-- - - - - - - - - - - - - - - - - - - -
-
--t = names an image
-. = is if Dockerfile is in the same directory
-
-docker build -t my-ubuntu-image .
-docker build -t wills_node_image .
-
-- - - - - - - - - - - - - - - - - - - -
-Destroying images and containers
-- - - - - - - - - - - - - - - - - - - -
-
-docker image rm wills_node_image --force
-docker kill e69acf6e20f6 = kill a specific container
-docker rm $(docker ps -a -f status=exited -q) = delete all local containers
-docker rm hopeful_heisenberg = kill a container running in background preventing you starting a new container
-```
-
-## Selenium grid
+## Example 3 - Selenium grid
 
 Lets setup our grid first
 
@@ -295,10 +236,69 @@ Then run
 firefox -P
 ```
 
-
 You should see something like :) - 
 
 ![An image displaying Google Chrome inside an Ubuntu container](ubuntu.jpg)
+
+
+## Commands summarized
+
+```
+- - - - - - - - - - - - - - - - - - - -
+Listing docker info
+- - - - - - - - - - - - - - - - - - - -
+
+docker images
+docker ps
+docker ps -a 
+docker pull selenium/node-firefox-debug < update image
+
+- - - - - - - - - - - - - - - - - - - -
+Creating containers
+- - - - - - - - - - - - - - - - - - - -
+
+--name = gives container a name
+-it = pops us into a container upon creating 
+bash = set bash terminal (use "exit" to leave it)
+
+docker run ubuntu
+docker container run ubuntu
+docker container run -it ubuntu bash
+docker container run ubuntu bash
+docker container run --name HAHAHAHAHAHAHAHAH ubuntu
+
+- - - - - - - - - - - - - - - - - - - -
+Creating  containers
+- - - - - - - - - - - - - - - - - - - -
+
+-v = mounts a file or drive [path to local]:[path inside container]
+--rm = deletes a container upon exiting it
+-p = specify port or port range
+
+docker container run --name my-linux-container -v notes.txt ubuntu bash
+docker container run -it --name my-linux-container --rm -v notes.txt ubuntu bash 
+docker container run -it --name water123123 --rm -v /Users/dalyw01/Desktop/docker-tutorial/my-data:/derp-folder ubuntu bash
+docker container run -p 4000:8081 wills_node_image
+
+- - - - - - - - - - - - - - - - - - - -
+Building custom Images from Dockerfile
+- - - - - - - - - - - - - - - - - - - -
+
+-t = names an image
+. = is if Dockerfile is in the same directory
+
+docker build -t my-ubuntu-image .
+docker build -t wills_node_image .
+
+- - - - - - - - - - - - - - - - - - - -
+Destroying images and containers
+- - - - - - - - - - - - - - - - - - - -
+
+docker image rm wills_node_image --force
+docker kill e69acf6e20f6 = kill a specific container
+docker rm $(docker ps -a -f status=exited -q) = delete all local containers
+docker rm hopeful_heisenberg = kill a container running in background preventing you starting a new container
+```
 
 To be finished - need to mount drive and get it working!
 To be finished - need to have firefox on ubuntu
